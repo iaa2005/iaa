@@ -463,7 +463,7 @@ iframe {
     border-radius: 28px;
     max-width: 520px;
     max-height: 540px;
-    box-shadow: 0 0 20px 0 rgba(56, 56, 56, 0.6);
+    /* box-shadow: 0 0 20px 0 rgba(56, 56, 56, 0.6); */
     background-color: #0c0c0c;
 }
 .inblock-image {
