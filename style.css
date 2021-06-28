@@ -196,6 +196,9 @@ iframe {
 .black {
     color: #0c0c0c;
 }
+.white {
+    color: white;
+}
 
 .violet-bg {
     /* Biochemistry */
@@ -232,6 +235,9 @@ iframe {
 .black-bg {
     background-color: #0c0c0c;
 }
+.white-bg {
+    background-color: white;
+}
 
 .menu-block {
     height: 100vh;
@@ -240,8 +246,8 @@ iframe {
     top: -100vh;
     transition: all .3s ease-in-out;
     z-index: 1;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.4);
 }
 /* .menu-block {
@@ -282,9 +288,7 @@ iframe {
 .white-logo {
     filter: contrast(0%) grayscale(100%) brightness(2);
 }
-.white {
-    color: white;
-}
+
 .cross-btn {
     fill: white;
 }
@@ -304,7 +308,6 @@ iframe {
 }
 .see-all-button {
     margin-left: auto;
-    color: #0c0c0c;
     font-family: "SF Pro Display", Arial, Helvetica, sans-serif;
     width: fit-content;
     height: fit-content;
@@ -317,11 +320,11 @@ iframe {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 15px;
-    box-shadow: 0 0 20px 0 rgba(56, 56, 56, 0.6);
-    background-color: #0c0c0c;
+    /* box-shadow: 0 0 20px 0 rgba(56, 56, 56, 0.6); */
+    background-color: #ffffff;
 }
 .see-all-button-text {
-    color: rgb(255, 255, 255);
+    color: #0c0c0c;
     font-size: min(4vw, 4vh);
 }
 .pre-title-block {
@@ -486,8 +489,8 @@ iframe {
     max-width: 480px;
     justify-self: center;
     border-radius: 12px;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -579,14 +582,19 @@ footer {
     margin-right: auto;
     display: grid;
     gap: 10px;
-    color: white;
     margin-bottom: 30px;
     border-radius: 28px;
-    box-shadow: 0 0 20px 0 rgba(56, 56, 56, 0.6);
+    /* box-shadow: 0 0 20px 0 rgba(56, 56, 56, 0.6); */
 }
 .type-article-title-text {
     font-size: 32px;
     color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+}
+.type-article-title-text-black {
+    font-size: 32px;
+    color: #0c0c0c;
     font-weight: 500;
     letter-spacing: 0.8px;
 }
@@ -640,7 +648,7 @@ footer {
 .more-button {
     margin-left: auto;
     margin-right: auto;
-    color: white;
+    color: #0c0c0c;
     font-size: min(5vw, 5vh);
     font-family: "SF Pro Display", Arial, Helvetica, sans-serif;
     width: fit-content;
@@ -652,8 +660,8 @@ footer {
     transition: all 0.3s ease-in-out;
     padding-left: 15px;
     padding-right: 15px;
-    box-shadow: 0 0 20px 0 rgba(56, 56, 56, 0.6);
-    background-color: #0c0c0c;
+    /* box-shadow: 0 0 20px 0 rgba(56, 56, 56, 0.6); */
+    background-color: #ffffff;
 }
 .sources-img {
     width: 100%;
