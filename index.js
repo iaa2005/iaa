@@ -1,5 +1,5 @@
-var domain = "https://raw.githubusercontent.com/iaa2005/iaa/main";
-var global_index = 0;
+const domain = "https://raw.githubusercontent.com/iaa2005/iaa/main";
+let global_index = 0;
 
 $(document).ready(function() {
     $.get("/header.html", function(data) {
@@ -32,7 +32,7 @@ $(document).ready(function() {
 
 function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+    let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
@@ -40,8 +40,8 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 function make_block(metadata, filename) {
-    var color = "";
-    var type_url = "";
+    let color = "";
+    let type_url = "";
     switch (metadata.type) {
         case "Физика":
             color = "blue";
@@ -96,8 +96,8 @@ function make_block(metadata, filename) {
 }
 
 function make_topic(metadata, data) {
-    var color = "";
-    var type_url = "";
+    let color = "";
+    let type_url = "";
     switch (metadata.type) {
         case "Физика":
             color = "blue";
@@ -156,26 +156,26 @@ function make_topic(metadata, data) {
 async function load_block(filename) {
     new Promise( function(resolve, reject) {
         $.get(`${domain}/markdown/${filename}/index.md`, function (data) {
-            var converter = new showdown.Converter({metadata: true});
-            var html_code = converter.makeHtml(data);
-            var metadata = converter.getMetadata(false);
-            var html_block = make_block(metadata, filename);
+            let converter = new showdown.Converter({metadata: true});
+            let html_code = converter.makeHtml(data);
+            let metadata = converter.getMetadata(false);
+            let html_block = make_block(metadata, filename);
             $(".blocks").append(html_block);
         });
     });
 }
 
 function load_markdown() {
-    var pathname = window.location.pathname;
+    let pathname = window.location.pathname;
     if (pathname === "/") {
-        var query = String(getParameterByName("topic"));
+        let query = String(getParameterByName("topic"));
         $.get("/markdown/filemap.txt", function (data) {
             list = data.split("\n");
             list.sort(); list.reverse();
             if (list.indexOf(query) === -1) {
-                var types = ["PH", "EL", "CH", "QU", "CR", "AL", "SP", "PL"];
-                var check = [0, 0, 0, 0, 0, 0, 0, 0];
-                var new_list = [];
+                let types = ["PH", "EL", "CH", "QU", "CR", "AL", "SP", "PL"];
+                let check = [0, 0, 0, 0, 0, 0, 0, 0];
+                let new_list = [];
                 for (const filename of list) {
                     if ((types.indexOf(filename.substring(8, 10)) !== -1) &&
                     (check[types.indexOf(filename.substring(8, 10))] === 0)) {
@@ -185,20 +185,20 @@ function load_markdown() {
                 }
                 for (const filename of new_list) {
                     $.get(`${domain}/markdown/${filename}/index.md`, function (data) {
-                        var converter = new showdown.Converter({metadata: true});
-                        var html_code = converter.makeHtml(data);
-                        var metadata = converter.getMetadata(false);
-                        var html_block = make_block(metadata, filename);
+                        let converter = new showdown.Converter({metadata: true});
+                        let html_code = converter.makeHtml(data);
+                        let metadata = converter.getMetadata(false);
+                        let html_block = make_block(metadata, filename);
                         $(".blocks").append(html_block);
                     });
                 }
             } else {
                 $(".see-all-block").addClass("remove");
                 $.get(`${domain}/markdown/${query}/index.md`, function (data) {
-                    var converter = new showdown.Converter({metadata: true});
-                    var html_code = converter.makeHtml(data);
-                    var metadata = converter.getMetadata(false);
-                    var html_topic = make_topic(metadata, html_code);
+                    let converter = new showdown.Converter({metadata: true});
+                    let html_code = converter.makeHtml(data);
+                    let metadata = converter.getMetadata(false);
+                    let html_topic = make_topic(metadata, html_code);
                     document.title = `${metadata.title} | IAA Inc.`;
                     $(".blocks").append(html_topic);
 
@@ -220,7 +220,7 @@ function load_markdown() {
     pathname === "/space/" ||  
     pathname === "/algorithm/" || 
     pathname === "/planet/") {
-        var type = ""
+        let type = ""
         switch (pathname) {
             case "/physics/":
                 type = "PH";
@@ -250,15 +250,15 @@ function load_markdown() {
                 type = "";
         }
         $.get("/markdown/filemap.txt", async (data) => {
-            var nofilter_list = data.split("\n");
+            let nofilter_list = data.split("\n");
             nofilter_list.sort(); nofilter_list.reverse();
-            var list = []
+            let list = []
             for (const filename of nofilter_list) {
                 if (type == filename.substring(8, 10)) {
                     list.push(filename);
                 }
             }
-            var i = 0;
+            let i = 0;
             while (true) {
                 await load_block(list[global_index]);
                 console.log(i, global_index);
@@ -277,7 +277,7 @@ function load_markdown() {
                 if (global_index >= list.length) {
                     $(".more-block").addClass("remove");
                 } else {
-                    var i = 0;
+                    let i = 0;
                     while (true) {
                         await load_block(list[global_index]);
                         console.log(i, global_index);
@@ -297,7 +297,7 @@ function load_markdown() {
         $.get("/markdown/filemap.txt", async (data) => {
             list = data.split("\n");
             list.sort(); list.reverse();
-            var i = 0;
+            let i = 0;
             while (true) {
                 await load_block(list[global_index]);
                 console.log(i, global_index);
@@ -316,7 +316,7 @@ function load_markdown() {
                 if (global_index >= list.length) {
                     $(".more-block").addClass("remove");
                 } else {
-                    var i = 0;
+                    let i = 0;
                     while (true) {
                         await load_block(list[global_index]);
                         console.log(i, global_index);
