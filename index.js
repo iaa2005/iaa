@@ -261,7 +261,7 @@ function load_markdown() {
             let i = 0;
             while (true) {
                 await load_block(list[global_index]);
-                console.log(i, global_index);
+                // console.log(i, global_index);
                 i += 1; global_index += 1;
                 if (global_index >= list.length) {
                     break;
@@ -280,7 +280,7 @@ function load_markdown() {
                     let i = 0;
                     while (true) {
                         await load_block(list[global_index]);
-                        console.log(i, global_index);
+                        // console.log(i, global_index);
                         i += 1; global_index += 1;
                         if (global_index === list.length) {
                             $(".more-block").addClass("remove");
@@ -300,7 +300,7 @@ function load_markdown() {
             let i = 0;
             while (true) {
                 await load_block(list[global_index]);
-                console.log(i, global_index);
+                // console.log(i, global_index);
                 i += 1; global_index += 1;
                 if (global_index >= list.length) {
                     break;
@@ -319,7 +319,7 @@ function load_markdown() {
                     let i = 0;
                     while (true) {
                         await load_block(list[global_index]);
-                        console.log(i, global_index);
+                        // console.log(i, global_index);
                         i += 1; global_index += 1;
                         if (global_index === list.length) {
                             $(".more-block").addClass("remove");
